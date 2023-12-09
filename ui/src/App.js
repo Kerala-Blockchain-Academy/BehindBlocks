@@ -3,6 +3,7 @@ import './App.css';
 
 function App() {
   const[inputMsg,setinputMsg]=useState();
+  const[outputMsg,setoutputMsg]=useState();
 
   function msgHandler(event){
     setinputMsg(event.target.value);
@@ -26,6 +27,12 @@ function App() {
      }
   } 
 
+  async function getValue(){
+      const data = await fetch('http://127.0.0.1:8000/read');
+      const result = await data.json();
+      setoutputMsg(result);
+  }
+
 
 
   return (
@@ -35,8 +42,8 @@ function App() {
    <input type='text' onChange={msgHandler} className='border border-gray-400 py-4 px-6 rounded' placeholder='Enter your Message'></input><br/>
    <button onClick={setValue} className='bg-blue-400 hover:bg-blue-700 rounded text-white py-2 px-6'>Set</button>
    <p className='font-bold text-xl py-4'>Get Message</p>
-   <button className='bg-blue-400 hover:bg-blue-700 rounded text-white py-2 px-6'>Get</button>
-   <p className='font-bold text-2xl py-4' ></p>
+   <button onClick={getValue} className='bg-blue-400 hover:bg-blue-700 rounded text-white py-2 px-6'>Get</button>
+   <p className='font-bold text-2xl py-4' >{outputMsg}</p>
 
    </div>
   );
