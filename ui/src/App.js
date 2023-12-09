@@ -16,13 +16,14 @@ function App() {
       },
       body:JSON.stringify({inputMsg})
      })
-    //  console.log(response.status);
-    //  if(response.status=201){
-    //   alert("Sucessfully sent to api");
-    //  }
-    //  else{
-    //   alert("Something is wrong");
-    //  }
+     console.log(response.status);
+    //  const res1= await response.json();
+     if(response.ok){
+      alert("Sucessfully sent to api");
+     }
+     else{
+      alert("Something is wrong");
+     }
   } 
 
 
