@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "fmt": "prettier --write ."
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,8 @@
     "ethers": "^6.11.1",
     "express": "^4.19.2",
     "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
   }
 }
