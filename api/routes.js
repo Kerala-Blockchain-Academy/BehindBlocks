@@ -9,14 +9,22 @@ router.get("/", function (req, res) {
 
 router.post("/create", async function (req, res) {
   const data = req.body;
-  const txn = await instance.store(data.inputMsg);
-  console.log(txn);
-  res.status(201).json({ Success: txn });
+  try {
+    const tx = await instance.store(data.input);
+    console.log(tx);
+    res.status(201).json({ success: true, tx: "tx" });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error });
+  }
 });
 
 router.get("/read", async function (req, res) {
-  const result = await instance.retrieve();
-  res.json(result);
+  try {
+    const result = await instance.retrieve();
+    res.status(200).json('result');
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
 
 export default router;
