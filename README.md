@@ -15,3 +15,9 @@ Simple Storage DApp for Ethereum beginners.
 ```
 npm install --save-dev hardhat
 ```
+
+## Hardhat init
+
+```
+npx hardhat init
+```
